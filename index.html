@@ -23,10 +23,11 @@
 
         h1,h2,h3,h4,h5,h6 {
             margin: 0px;
+            
         }
         .card{
             height: 95px;
-            width: 12%;
+            width: 13%;
             background-color: white;
             font-size: 16px;
             box-shadow: 0px 10px 5px rgb(0, 0, 0 , 30% );
@@ -40,11 +41,21 @@
         }
         .header h1 {
             font-weight: 400;
+            padding: 5px;
+            text-align: center;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .time{
+            font-size: 40px;
         }
     </style>
 </head>
 <body style="direction: rtl;">
-    <div>
+    <div style="height: 100vh;">
         <!-- city name + date -->
         
         <div style="margin-top: 100px;">
@@ -57,12 +68,52 @@
                  <hr style="margin: 0px 50px; border-color: #240165;">
 
                  <!-- prayer timings -->
-                  <div style="height: 300px; margin-top: 80px;">
-                    <div class="card">
+                  <div class="center" style="justify-content: space-around;">
+                    <div class="card" style="height: 200px; margin-top: 80px;">
                         <div class="header">
                             <h1>الفجر</h1>
                         </div>
-                        <div class="body">
+                        <div class="body center" style="height: 80%;">
+                            <h1 class="time">
+                                4:30
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="card" style="height: 200px; margin-top: 80px;">
+                        <div class="header">
+                            <h1>الفجر</h1>
+                        </div>
+                        <div class="body center" style="height: 80%;">
+                            <h1 class="time">
+                                4:30
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="card" style="height: 200px; margin-top: 80px;">
+                        <div class="header">
+                            <h1>الفجر</h1>
+                        </div>
+                        <div class="body center" style="height: 80%;">
+                            <h1 class="time">
+                                4:30
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="card" style="height: 200px; margin-top: 80px;">
+                        <div class="header">
+                            <h1>الفجر</h1>
+                        </div>
+                        <div class="body center" style="height: 80%;">
+                            <h1 class="time">
+                                4:30
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="card" style="height: 200px; margin-top: 80px;">
+                        <div class="header">
+                            <h1>الفجر</h1>
+                        </div>
+                        <div class="body center" style="height: 80%;">
                             <h1 class="time">
                                 4:30
                             </h1>
@@ -70,6 +121,18 @@
                     </div>
                   </div>
                  <!--// prayer timings //-->
+
+                 <!-- Change city select -->
+                 <div class="center" style="margin-top: 120PX;">
+
+                    <select name="" id="" style="width: 300px; height: 35px; font-size: 18px; font-family: Tajawal; background: none; color: white; padding: 5px; border-radius: 20px;">
+
+                        <option value="">الرياض</option>
+                        <option value="">جدة</option>
+                        <option value="">القصيم</option>
+                    </select>
+                 </div>
+                 <!--// Change city select //-->
         </div>
         <!--// city name + date //-->
     </div>
