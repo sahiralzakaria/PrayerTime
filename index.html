@@ -62,7 +62,10 @@
             
                  <div style="color: white; margin-right: 40px;">
                     <h1 >الرياض</h1>
-                    <h6 style="font-size: 40px; font-weight: 200;">الجمعة 30 أكتوبر</h2>
+                    <h6 style="font-size: 40px; font-weight: 200;" id="date">
+                       
+
+                    </h2>
                  </div>
                  
                  <hr style="margin: 0px 50px; border-color: #240165;">
@@ -75,7 +78,6 @@
                         </div>
                         <div class="body center" style="height: 80%;">
                             <h1 class="time" id="fajr-time">
-                                4:30
                             </h1>
                         </div>
                     </div>
@@ -85,7 +87,6 @@
                         </div>
                         <div class="body center" style="height: 80%;">
                             <h1 class="time" id="sunrise-time">
-                                4:30
                             </h1>
                         </div>
                     </div>
@@ -94,8 +95,7 @@
                             <h1>الظهر</h1>
                         </div>
                         <div class="body center" style="height: 80%;">
-                            <h1 class="time" id="dhuruh-time">
-                                4:30
+                            <h1 class="time" id="dhuhr-time">
                             </h1>
                         </div>
                     </div>
@@ -105,7 +105,6 @@
                         </div>
                         <div class="body center" style="height: 80%;">
                             <h1 class="time" id="asr-time">
-                                4:30
                             </h1>
                         </div>
                     </div>
@@ -115,7 +114,6 @@
                         </div>
                         <div class="body center" style="height: 80%;">
                             <h1 class="time" id="sunset-time">
-                                4:30
                             </h1>
                         </div>
                     </div>
@@ -125,7 +123,6 @@
                         </div>
                         <div class="body center" style="height: 80%;">
                             <h1 class="time" id="isha-time">
-                                4:30
                             </h1>
                         </div>
                     </div>
@@ -135,11 +132,9 @@
                  <!-- Change city select -->
                  <div class="center" style="margin-top: 120PX;">
 
-                    <select name="" id="" style="width: 300px; height: 35px; font-size: 18px; font-family: Tajawal; background: none; color: white; padding: 5px; border-radius: 20px;">
+                    <select name="" id="cities-select" style="width: 200px; height: 45px; font-size: 22px; font-family: Tajawal; font-weight: 500; background:white; color: black; padding: 5px; border-radius: 20px; text-align: center;">
 
-                        <option value="">الرياض</option>
-                        <option value="">جدة</option>
-                        <option value="">القصيم</option>
+                        
                     </select>
                  </div>
                  <!--// Change city select //-->
@@ -151,7 +146,26 @@
 <script src="/node_modules/axios/dist/axios.min.js"></script>
 <script>
 
+    let cities = [
+    'الرياض' , "الشرقية", "جدة"        
 
+];
+
+for (let city of cities){
+     const content = `
+     <option>${city}</option>
+     `
+     document.getElementById('cities-select').innerHTML += content;
+}
+
+    document.getElementById('cities-select').addEventListener('change' , function(){
+        alert('hello')
+    })
+
+
+    function getPrayerTimingsOfCity(){
+
+    }
     let params = {
         country : "SA",
         city: "riyadh"
@@ -160,11 +174,25 @@ axios.get('https://api.aladhan.com/v1/timingsByCity', {
     params: params
   })
   .then(function (response) {
-    console.log(response);
+    const timings = response.data.data.timings
+    fillTimeForPrayer('fajr-time' , timings.Fajr);
+    fillTimeForPrayer('sunrise-time' , timings.Sunrise);
+    fillTimeForPrayer('dhuhr-time' , timings.Dhuhr);
+    fillTimeForPrayer('asr-time' , timings.Asr);
+    fillTimeForPrayer('sunset-time' , timings.Sunset);
+    fillTimeForPrayer('isha-time' , timings.Isha);
+
+    const readableDate = response.data.data.date.gregorian.date;
+    const weekDay = response.data.data.date.hijri.weekday.ar;
+    const date =  weekDay + " " +  readableDate
+    document.getElementById('date').innerHTML = date;
   })
   .catch(function (error) {
     console.log(error);
   })
     
+    function fillTimeForPrayer(id , time){
+       document.getElementById(id).innerHTML = time
+    }
 </script>
 </html>
