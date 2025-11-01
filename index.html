@@ -74,47 +74,57 @@
                             <h1>الفجر</h1>
                         </div>
                         <div class="body center" style="height: 80%;">
-                            <h1 class="time">
+                            <h1 class="time" id="fajr-time">
                                 4:30
                             </h1>
                         </div>
                     </div>
                     <div class="card" style="height: 200px; margin-top: 80px;">
                         <div class="header">
-                            <h1>الفجر</h1>
+                            <h1>الشروق</h1>
                         </div>
                         <div class="body center" style="height: 80%;">
-                            <h1 class="time">
+                            <h1 class="time" id="sunrise-time">
                                 4:30
                             </h1>
                         </div>
                     </div>
                     <div class="card" style="height: 200px; margin-top: 80px;">
                         <div class="header">
-                            <h1>الفجر</h1>
+                            <h1>الظهر</h1>
                         </div>
                         <div class="body center" style="height: 80%;">
-                            <h1 class="time">
+                            <h1 class="time" id="dhuruh-time">
                                 4:30
                             </h1>
                         </div>
                     </div>
                     <div class="card" style="height: 200px; margin-top: 80px;">
                         <div class="header">
-                            <h1>الفجر</h1>
+                            <h1>العصر</h1>
                         </div>
                         <div class="body center" style="height: 80%;">
-                            <h1 class="time">
+                            <h1 class="time" id="asr-time">
                                 4:30
                             </h1>
                         </div>
                     </div>
                     <div class="card" style="height: 200px; margin-top: 80px;">
                         <div class="header">
-                            <h1>الفجر</h1>
+                            <h1>المغرب</h1>
                         </div>
                         <div class="body center" style="height: 80%;">
-                            <h1 class="time">
+                            <h1 class="time" id="sunset-time">
+                                4:30
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="card" style="height: 200px; margin-top: 80px;">
+                        <div class="header">
+                            <h1>العشاء</h1>
+                        </div>
+                        <div class="body center" style="height: 80%;">
+                            <h1 class="time" id="isha-time">
                                 4:30
                             </h1>
                         </div>
@@ -138,4 +148,23 @@
     </div>
     
 </body>
+<script src="/node_modules/axios/dist/axios.min.js"></script>
+<script>
+
+
+    let params = {
+        country : "SA",
+        city: "riyadh"
+    }
+axios.get('https://api.aladhan.com/v1/timingsByCity', {
+    params: params
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+    
+</script>
 </html>
