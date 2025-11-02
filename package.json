@@ -1,21 +1,21 @@
 {
-  "name": "prayer-time",
+  "name": "prayer-times-app-html-css-js",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000P\u0000r\u0000a\u0000y\u0000e\u0000r\u0000T\u0000i\u0000m\u0000e\u0000\r\u0000 \u0000",
+  "description": "Web app to display Islamic prayer times using HTML, CSS, JS, and an API.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sahiralzakaria/prayer-times-app.git"
+    "url": "git+https://github.com/sahiralzakaria/prayer-times-app-html-css-js.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sahiralzakaria/prayer-times-app/issues"
+    "url": "https://github.com/sahiralzakaria/prayer-times-app-html-css-js/issues"
   },
-  "homepage": "https://github.com/sahiralzakaria/prayer-times-app#readme",
+  "homepage": "https://github.com/sahiralzakaria/prayer-times-app-html-css-js#readme",
   "dependencies": {
     "axios": "^1.13.1"
   }
